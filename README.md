@@ -322,59 +322,6 @@ juego = Juego()
 puntos1, puntos2 = juego.jugar_partido(org, otro_organismo, rondas=300)
 ```
 
-## Configuración Recomendada para Diferentes Estudios
-
-### Estudio Rápido (5-10 minutos)
-```python
-gens = 20
-evolucion.inicializar_poblacion(50, [(2, []), (3, [4]), (4, [8, 4])])
-```
-
-### Estudio Moderado (1-2 horas)
-```python
-gens = 100
-evolucion.inicializar_poblacion(100, [(2, []), (3, [6]), (4, [20, 4])])
-```
-
-### Estudio Completo (4-8 horas)
-```python
-gens = 200
-evolucion.inicializar_poblacion(150, [(2, []), (3, [6]), (4, [20, 4])])
-```
-
-### Comparativa Arquitecturas (8+ horas)
-```python
-gens = 300
-tipos = [
-    (3, []),              # Sin capas ocultas
-    (3, [4]),             # Una capa pequeña
-    (3, [8]),             # Una capa mediana
-    (3, [16]),            # Una capa grande
-    (3, [8, 4]),          # Dos capas
-    (3, [16, 8, 4]),      # Tres capas
-]
-evolucion.inicializar_poblacion(200, tipos)
-```
-
-## Diferencias Entre Simulaciones
-
-| Característica | Estándar | Balanceada | Duelo |
-|---|---|---|---|
-| **Competencia** | Todos vs. todos | Todos vs. todos | Población A vs. B |
-| **Selección** | Top 50 global | Top proporcional/tipo | Top 25 por población |
-| **Riesgo extinción** | Alto | Bajo | Controlado |
-| **Uso** | Explorar dinámicas | Comparar tipos equitativamente | Estudiar conflictos directos |
-
-## Notas Importantes
-
-1. **Ruta base**: La ruta `/Users/pauloc/...` está hardcodeada. Actualiza la variable `base_folder` a una ruta local.
-
-2. **Tiempo de ejecución**: Con 200 generaciones y 100 jugadores, la simulación toma ~30-60 minutos dependiendo del hardware.
-
-3. **Reproducibilidad**: Los algoritmos genéticos incluyen aleatoriedad. Usa `np.random.seed()` antes de la simulación si necesitas resultados determinísticos.
-
-4. **Uso de memoria**: Cada organismo guardado ocupa ~1-2 KB. Con 100 jugadores × 200 generaciones = 20,000 organismos ≈ 20-33 MB por experimento.
-
 ## Licencia
 
 Este proyecto es parte de una investigación académica de Máster en IA.
